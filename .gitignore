@@ -1,4 +1,5 @@
 env/
 archive/
+climatemap/map/secret_key.py
 .venv/
 models/
