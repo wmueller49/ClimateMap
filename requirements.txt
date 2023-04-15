@@ -6,3 +6,4 @@ seaborn
 numpy
 matplotlib
 folium
+django-bootstrap5
