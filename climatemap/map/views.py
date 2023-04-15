@@ -57,14 +57,15 @@ def update_map(request):
 
 def bot(request):
     if request.method == 'POST':
-        prompt = "I am a user of a climate map website where an interactive map shows me the carbon footprint of all countries over time. I will be asking questions regarding climate change and carbon footprint. You are a chatbot named ClimateBot on the website that is powered by gpt3. Your job is to provide me information about climate change and how I can reduce my carbon footprint." + \
-            request.POST.get('prompt')
+        user_prompt = request.POST.get('prompt')
+        prompt = "I am a user of a climate map website where an interactive map shows me the carbon footprint of all countries over time. I will be asking questions regarding climate change and carbon footprint. You are a chatbot named ClimateCompanion on the website that is powered by gpt3. Your job is to only provide me information about climate change and how I can reduce my carbon footprint." + \
+            user_prompt
         response = openai.Completion.create(
             model="text-davinci-003", prompt=prompt, temperature=1, max_tokens=1000)
         formatted_response = response['choices'][0]['text'][1:]
         context = {
             'formatted_response': formatted_response,
-            'prompt': prompt
+            'prompt': user_prompt
         }
         return render(request, "chatbot.html", context)
     else:
