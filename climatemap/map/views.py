@@ -5,6 +5,9 @@ import geopandas
 def index(request):
     return render(request, "map.html")
 
+def calculator(request):
+    return render(request,'calculator.html')
+
 def climate_map(request):
     return render(request, "climate_map.html")
 
