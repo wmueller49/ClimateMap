@@ -5,4 +5,5 @@ scikit-learn
 seaborn
 numpy
 matplotlib
+folium
 django-bootstrap5
