@@ -3,3 +3,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, "map.html")
+
+def calculator(request):
+    return render(request,'calculator.html')
