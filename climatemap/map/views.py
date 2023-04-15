@@ -61,7 +61,7 @@ def bot(request):
             request.POST.get('prompt')
         response = openai.Completion.create(
             model="text-davinci-003", prompt=prompt, temperature=1, max_tokens=1000)
-        formatted_response = response['choices'][0]['text']
+        formatted_response = response['choices'][0]['text'][1:]
         context = {
             'formatted_response': formatted_response,
             'prompt': prompt
