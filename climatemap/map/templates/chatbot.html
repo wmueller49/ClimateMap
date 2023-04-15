@@ -24,7 +24,7 @@
                 <h1 class="card-header text-center">A.I Climate Assistant</h1>
                 <div class="card-body">
                     <pre class="text-wrap">Hello, am your web assistant here to help you, Please enter your metrics to find out ways to reduce your Carbon footprint</pre>
-                    <form action="/map/calculator" method="POST">
+                    <form action="/map/climatebot" method="POST">
                         <!-- this secures the form from malicious attacks during submission -->
                         {% csrf_token %}
                         <input class="form-control mb-2" required type="text" autofocus="autofocus" name="prompt"
