@@ -32,7 +32,7 @@
                 {% csrf_token %}
                 <input type="range" min="1750" max="2023" value="{{ prev_year }}" class="slider" id="year_val" name="year_val">
                 <p>Year: <span id="year_output">{{ prev_year }}</span></p>
-                <button class="btn btn-info btn-block text-uppercase" name="button-type" type="submit">Generate Map</button>
+                <button class="btn btn-success fw-bold" name="button-type" type="submit">Generate Map</button>
             </div>
         </form>
     </center>
