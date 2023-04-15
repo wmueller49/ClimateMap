@@ -26,35 +26,48 @@
     <!--<h1>Hello</h1> -->
     <center>
         <iframe src="climate_map" width="70%" height="500px" style="display: block;" alight=center></iframe>
-        <div class="slidecontainer">
-            <input type="range" min="1960" max="2023" value="2000" class="slider" id="myRange">
-            <p>Year: <span id="year_output"></span></p>
-        </div>
+
+        <form method="POST" action="/map/update_map">
+            <div class="slidecontainer">
+                {% csrf_token %}
+                <input type="range" min="1750" max="2023" value="{{ prev_year }}" class="slider" id="year_val" name="year_val">
+                <p>Year: <span id="year_output">{{ prev_year }}</span></p>
+                <button class="btn btn-info btn-block text-uppercase" name="button-type" type="submit">Generate Map</button>
+            </div>
+        </form>
     </center>
 <script>
-var slider = document.getElementById("myRange");
+var slider = document.getElementById("year_val");
 var output = document.getElementById("year_output");
 output.innerHTML = slider.value;
 
 slider.oninput = function() {
   output.innerHTML = this.value;
 }
-var postData = {
-            year: this.value
-        }
-slider.onchange = function() {
-  /*console.log(this.value)
-        $.post("/map/update_map", postData, function(data){
-        });
-        */
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "/map/update_map");
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send(JSON.stringify({
-          year: this.value
-  }));
+// var postData = {
+//             year: this.value
+//         }
+// slider.onchange = function() {
+//   /*console.log(this.value)
+//         $.post("/map/update_map", postData, function(data){
+//         });
+//         */
+//   var xhr = new XMLHttpRequest();
+//   xhr.open("POST", "/map/update_map");
+//   xhr.setRequestHeader("X-CSRFToken", "{{csrf_token}}");
+//   xhr.setRequestHeader("Content-Type", "application/json");
+//   let data = {
+//     year: this.value,
+//   };
 
-}
+//   console.log(data)
+//   xhr.send(data);
+
+// //   xhr.send(JSON.stringify({
+// //           year: this.value,
+// //   }));
+
+// }
 </script>
 </body>
 </html>

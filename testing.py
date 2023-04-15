@@ -3,7 +3,7 @@ import pandas as pd
 import datetime
 
 world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
-YEAR = 2005
+YEAR = 1900
 
 temp_data = pd.read_csv("archive/GlobalLandTemperaturesByCountry.csv")
 
